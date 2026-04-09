@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="register.css">
+  <title>Cricket Registration Hub</title>
+</head>
+
+<body>
+  <h2 class="mainabovetxt">CRICKET REGISTRATION HUB</h2>
+  <p class="tagline">join the league and let<br> your hidden talent bright!</p>
+  
+  <div class="navbar">
+    <a href="/cricweb/aboutus.html" class="navbarelements" id="aboutus">About us</a>
+    <a href="/cricweb/index.html" class="navbarelements2">Home</a>
+    <div class="belowtab"></div>
+    <a href="/cricweb/contactus.html" class="navbarelements3">Contact Us</a>
+  </div>
+  
+  <model-viewer class="batmodel" src="/cricweb/cricket_bat_india.glb" autoplay
+    camera-controls touch-action="pan-y" disable-zoom></model-viewer>
+  <img src="https://i.ibb.co/7s161bg/1-34f63172-aec6-4c5a-871f-a48da2df02e1-removebg-preview.png" class="batimg">
+  
+  <model-viewer class="batmodel2" src="/cricweb/cricket_bat_india.glb" autoplay
+    camera-controls touch-action="pan-y" disable-zoom></model-viewer>
+  
+  <img src="https://i.ibb.co/Tx1cmLqt/sg-cb-25003-large-removebg-preview.png" class="ballanm">
+  <img src="https://i.ibb.co/xtvY1RSY/360-F-287282650-yc-Zr7-XZb8-MMi-Kk-B9z9-WNnarw-RNIr7-ZIw-removebg-preview.png" class="crack">
+  <br>
+
+  <div class="formholder">
+    <form action="https://formspree.io/f/mykbabgd" method="POST" enctype="multipart/form-data">
+      
+      <label for="fullname"><p class="labeltext">Full Name</p></label>
+      <input type="text" placeholder="enter your full name" id="fullname" name="full_name" required>
+      <br />
+      
+      <label for="email"><p id="emailtxt">Email:</p></label>
+      <input type="email" placeholder="enter your email" id="email" name="email" required>
+      
+      <p class="form-title">Select Player Role:</p>
+
+      <div class="radio-group">
+        <input type="radio" id="bowler" name="player_role" value="bowler" checked>
+        <label for="bowler"><p class="text1">Bowler</p></label>
+      </div>
+
+      <div class="radio-group">
+        <input type="radio" id="batsman" name="player_role" value="batsman">
+        <label for="batsman"><p class="text2">Batsman</p></label>
+      </div>
+
+      <div class="radio-group">
+        <input type="radio" id="allrounder" name="player_role" value="allrounder">
+        <label for="allrounder"><p class="text3">All-Rounder</p></label>
+      </div>
+      
+      <label for="image" id="imagelabel">Tell your approaches or your achievements</label>
+      <br />
+      <br>
+      <input type="text" id="image" name="player_achivements">
+      
+      <input type="submit" value="Register" name="Register" id="register">
+    </form>
+  </div>
+
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"></script>
+</body>
+
+</html>
