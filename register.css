@@ -1,0 +1,366 @@
+.navbar{
+  height:45px;
+  width:359px;
+  background-color:rgba(3,13,112,0.9);
+  position:absolute;
+  bottom:625px;
+  right:0px;
+border: 2px solid transparent;
+  border-radius: 2px;
+
+  /* 2. Layered Backgrounds */
+  /* First Layer: Your dark purple background (clipped to the padding-box) */
+  /* Second Layer: The animated gradient (clipped to the border-box) */
+  background: 
+    linear-gradient(#060b21, #060b21) padding-box, 
+    linear-gradient(45deg, #ff8c00, #ffd700, #008000, #ff8c00) border-box;
+
+  /* 3. Animation Settings */
+  background-size: 100% 100%, 400% 400%;
+  animation: borderGradient 4s linear infinite;
+}
+
+@keyframes borderGradient {
+  0% {
+    background-position: 0% 50%, 0% 50%;
+  }
+  50% {
+    background-position: 0% 50%, 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%, 0% 50%;
+  }
+
+}
+.navbarelements{
+  text-decoration:none;
+  position:absolute;
+  color:rgba(122,240,3,0.7);
+
+  top:15px;
+  left:145px;
+}
+.navbarelements2{
+text-decoration:none;
+position:absolute;
+color:rgba(122, 240, 3, 0.7);
+left:50px;
+top:13px;
+font-size:18px;
+text-shadow:0 0 1px  white;
+}
+.belowtab{
+  height:2px;
+  width:45px;
+  background-color:green;
+  position:absolute;
+  left:54px;
+  top:38px;
+}
+.navbarelements3{
+text-decoration:none;
+position:absolute;
+color:rgba(122, 240, 3, 0.7);
+
+top:15px;
+left:250px;
+}
+body {
+  background: linear-gradient(to right, #ff0000, #ffffff);
+}
+.batmodel {
+  height: 300px;
+  width: 300px;
+  position:absolute;
+  bottom: 100px;
+  right:150px;
+  z-index: 1;
+  opacity: 1;
+  overflow: hidden;
+  transform:translateZ(100px);
+  opacity:1;
+
+  transform-origin: center bottom;
+  animation:batHit 1.5s cubic-bezier(0.25,0.46,0.45,0.94) 1s forwards;
+  
+  transform:rotate(-55deg);
+  
+}
+
+@keyframes batHit {
+  0%   { transform: rotate(-55deg); }  /* raised back */
+/*  38%  { transform: rotate(-55deg); }  /* hold */
+  65%  { transform: rotate(15deg);  }  /* follow-through */
+  /*80%  { transform: rotate(15deg);  }  /* hold */
+  100% {
+    transform:translateX(10px);
+    transform: rotate(-55deg); }  /* reset */
+}
+
+.batimg{
+  height:200px;
+  width:200px;
+  position:absolute;
+  top:200px;
+  transform:translate3d(0,0,100px);
+  opacity:0;
+}
+.ballanm{
+position:absolute;
+height:25px;
+width:25px;
+z-index:2;
+bottom:125px;
+right:-15px;
+animation:ballgo 3s ease-in 1 forwards;
+animation-delay: 0.5s;
+}
+@keyframes ballgo {
+  0% {
+    transform: translate(0, 0);
+    rotate: 0deg;
+  }
+  25% {
+    transform: translate(-96px, -50px);
+    rotate: -180deg;
+  }
+  50% {
+    transform: translate(-262px, 40px);
+    rotate: -360deg;
+  }
+  100% {
+    /* Chains translate and scale together. 
+       Uses -50vw to move it to the center from the right edge */
+    transform: translate(calc(-50vw + 15px), -100px) scale(10);
+    rotate: 360deg;
+  }
+}
+.crack{
+  height:300px;
+  width:300px;
+  position:absolute;
+  top:250px;
+  z-index:3;
+  left:30px;
+  transform:scale(2);
+  animation:deadopacity 0.2s ease-in 1 forwards;
+  animation-delay:3.5s;
+  opacity:0;
+}
+@keyframes deadopacity{
+  0%{
+    opacity:0;
+  }
+  100%{
+    opacity:1;
+  }
+  
+}
+@keyframes batzoom {
+  0% {
+    transform: rotate(270deg) scale(1);
+    z-index: 2;
+  }
+  100% {
+    /* 1. Center it: Move left by 50% of viewport width */
+    /* 2. Scale it: Use a large enough scale to cover the screen */
+    /* 3. Rotate: 360deg (or 0deg) makes it horizontal if 270deg was vertical */
+    transform: translate(calc(-50vw + 15px), -100px) rotate(360deg) scale(20);
+    
+    /* 4. Layering: Bring it to the very top */
+    z-index: 5;
+    
+    /* 5. Optional: Ensure it hides everything behind it */
+    opacity: 1;
+  }
+}
+.batmodel2{
+  height:390px;
+  width:390px;
+  transform:rotate(90deg);
+  position:absolute;
+  left:-25px;
+  z-index:500;
+  opacity:0;
+  animation:batzoomer 1s ease-in 4s forwards;
+}
+@keyframes batzoomer{
+  0%{
+    opacity:0;
+  }
+  25%{
+    opacity:1;
+  }
+  100%{
+    transform:translateX(30px)scale(8);
+    opacity:1;
+  }
+}
+.formholder{
+  position:absolute;
+  
+  z-index:999;
+  
+  border:2px solid dodgerblue;
+display:flex;
+flex-direction: column; /* Stacks items vertically */
+  align-items: center;    /* Centers items horizontally */
+  justify-content: center; /* Centers items vertically (if the div has a height) */
+width:250px;
+padding-left:50px;
+padding-right:40px;
+height:480px;
+padding-top:80px;
+border-radius:12px;
+bottom:35px;
+right:355px;
+animation:formwalk 0.5s ease-in-out 5.5s 1 forwards;
+box-shadow:3px 3px 3px 3px brown;
+}
+#fullname{
+  position:relative;
+   border:2px solid dodgerblue;
+  border-radius:5px;
+  z-index:999;
+}
+.form-title{
+  position:relative;
+  top:10px;
+  z-index:999;
+  color:transparent;
+background:linear-gradient(#ff0000, #ffb6c1);
+background-clip:text;
+-webkit-background-clip:text;
+font-size:20px;
+}
+.radio-group{
+  position:relative;
+  top:10px;
+  z-index:499;
+}
+.text1{
+  position:relative;
+  left:40px;
+  bottom:38px;
+  z-index:999;
+  color:dodgerblue;
+  text-shadow:0 0 3px white;
+}
+#batsman{
+  position:relative;
+  bottom:50px;
+  z-index:999;
+  border:8px solid aqua;
+  
+}
+.text2{
+position:relative;
+left:38px;
+bottom:86px;
+z-index:999;
+color:dodgerblue;
+text-shadow:0 0 3px white;
+
+}
+#allrounder{
+  position:relative;
+  z-index:999;
+  bottom:100px;
+border:8px solid aqua;
+}
+.text3{
+position:relative;
+left:38px;
+bottom:134px;
+z-index:999;
+color:dodgerblue;
+text-shadow:0 0 3px white;
+
+}
+.labeltext{
+  position:relative;
+  z-index:999;
+ color:transparent;
+ background:linear-gradient(#ff0000,#ffb6c1);
+ background-clip:text;
+ -webkit-background-clip: text;
+ font-size:20px;
+ top:8px;
+}
+#emailtxt{
+  position:relative;
+  z-index:999;
+color:transparent;
+background:linear-gradient(#ff0000, #ffb6c1);
+background-clip:text;
+-webkit-background-clip: text;
+font-size:20px;
+top:8px;
+}
+#email{
+  position:relative;
+  z-index:999;
+border:2px solid dodgerblue;
+border-radius:5px;
+}
+#imagelabel{
+  position:relative;
+  bottom:140px;
+ color:transparent;
+ background:linear-gradient(#ff0000, #ffb6c1);
+ background-clip:text;
+ -webkit-background-clip: text;
+ font-size:20px;
+ 
+}
+#image{
+  position:relative;
+  bottom:150px;
+}
+#register{
+  position:relative;
+  bottom:80px;
+  left:150px;
+  height:60px;
+  width:120px;
+  color:white;
+  font-size:20px;
+  background:linear-gradient(to right,#8E7EDE,skyblue);
+  border:2px solid dodgerblue
+  ;
+  border-radius:8px;
+  text-shadow:0 0 2px white;
+  bottom:100px;
+}
+.mainabovetxt {
+  color: transparent;
+  background: linear-gradient( to right,#ff0000 0% 40%, dodgerblue 60% 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  position: absolute;
+  left:9px;
+  z-index: 999;
+  bottom:610px;
+  font-size: 23px;
+animation:deadopacity 0.5s ease-in-out 5.5s 1 forwards;
+opacity:0;
+}
+.tagline{
+  font-size:12px;
+  position:absolute;
+  color:rgba(255,255,255,0.8);
+  z-index:999;
+  top:27px;
+  left:100px;
+animation:deadopacity 0.5s ease-in-out 5.5s 1 forwards;
+opacity:0;
+}
+@keyframes formwalk{
+  from{
+    transform:translate(0,0);
+  }
+  to{
+  transform:translate(345px,0px);
+  }
+}
+
