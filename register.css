@@ -1,3 +1,26 @@
+/* --- THE FIXED SCALING WRAPPER --- */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #111; /* Dark background so the app canvas pops out cleanly on wide screens */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Perfectly centers the canvas */
+  height: 100vh;
+  width: 100vw;
+}
+
+#app-canvas {
+  position: relative;
+  width: 360px;
+  height: 670px; /* The exact height of your M12 view */
+  background: linear-gradient(to right, #ff0000, #ffffff); /* Your original red-to-white gradient! */
+  overflow: hidden; /* Stops any animations from escaping the canvas */
+  transform-origin: center center;
+}
+
+/* --- YOUR EXACT ORIGINAL CSS BELOW --- */
 .navbar{
   height:45px;
   width:359px;
@@ -65,9 +88,6 @@ color:rgba(122, 240, 3, 0.7);
 top:15px;
 left:250px;
 }
-body {
-  background: linear-gradient(to right, #ff0000, #ffffff);
-}
 .batmodel {
   height: 300px;
   width: 300px;
@@ -89,7 +109,7 @@ body {
 
 @keyframes batHit {
   0%   { transform: rotate(-55deg); }  /* raised back */
-/*  38%  { transform: rotate(-55deg); }  /* hold */
+/* 38%  { transform: rotate(-55deg); }  /* hold */
   65%  { transform: rotate(15deg);  }  /* follow-through */
   /*80%  { transform: rotate(15deg);  }  /* hold */
   100% {
@@ -363,4 +383,3 @@ opacity:0;
   transform:translate(345px,0px);
   }
 }
-
