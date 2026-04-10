@@ -1,3 +1,31 @@
+/* --- THE FIXED SCALING WRAPPER --- */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #111; /* Dark background so your app canvas pops out cleanly */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Perfectly centers the canvas */
+  height: 100vh;
+  width: 100vw;
+}
+
+#app-canvas {
+  position: relative;
+  width: 360px;
+  height: 670px; /* The exact height of your M12 view */
+  background: linear-gradient(to right, #28d488, #ffffff); /* Your original gradient is safely in here now! */
+  overflow: hidden; /* Stops any animations from escaping the canvas */
+  transform-origin: center center; /* This stops it from flying off to the right! */
+}
+
+/* --- YOUR EXACT ORIGINAL CSS BELOW --- */
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .mainimg{
   position:relative;
   height:250px;
@@ -29,7 +57,6 @@ animation-delay:1s;
   left:165px;
   animation:circlesextend 1s ease-in 1 forwards ;
   animation-delay:2.5s;
-  
 }
 @keyframes ballgo {
   0%{
@@ -105,7 +132,6 @@ animation-delay:4s;
   font-size: 16px;
   font-weight: 700;
   color: brown;
- /* background-color: #007bff;*/
  background:linear-gradient(135deg,#007bff,#ffffff,#007bff);
   border: none;
   border-radius: 6px;
@@ -157,6 +183,317 @@ right:600px;
   transform: translateY(-2px);
 }
 
+.register-btn:hover::before,
+.register-btn:hover::after {
+  opacity: 1;
+  animation: moveGradient 4s linear infinite;
+}
+
+@keyframes moveGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+#textholder{
+  background:linear-gradient(to right,rgba(6,12,33,1)
+  ,rgba(6,12,33,0.2));
+  height:300px;
+  width:400px;
+  position:absolute;
+  bottom:333px;
+  right:360px;
+  animation: divcome 0.5s ease-in 1 forwards;
+  animation-delay:3.5s;
+  box-shadow:2px 2px 5px 5px brown;
+}
+@keyframes divcome{
+  from{
+    transform:translateX(0px);
+  }
+  to{
+    transform:translateX(360px);
+  }
+}
+.mainabovetxt{
+  color:transparent;
+  background:linear-gradient(to right, #00ff88,#ffffff,#FFB6C1);
+  background-clip:text;
+  -webkit-background-clip: text;
+  position:absolute;
+  bottom:515px;
+  z-index:5;
+  font-size:22px;
+animation: divcome 0.5s ease-in 1 forwards;
+animation-delay:3.5s;
+right:546px;
+}
+.belowtxt{
+  font-size:15px;
+  color:rgba(255,255,255,0.7);
+  position:absolute;
+  bottom:440px;
+  opacity:0;
+  animation:deadopacity 0.5s ease-in 1 forwards;
+  animation-delay:3.5s;
+}
+@keyframes pointermove{
+  from{
+    height:20px;
+    width:1.5x;
+  }
+  to{
+    height:70px;
+    width:1.5px;
+  }
+}
+@keyframes deadopacity{
+  from{
+    opacity:0;
+  }
+  to{
+    opacity:1;
+  }
+}
+.hehehe {
+  position:absolute;
+  z-index:0;
+  height:58px;
+  width:110px;
+  background:linear-gradient(#007bff,#fff,#007bff);
+  border:1px solid #007bff;
+  bottom:347px;
+  right:600px;
+  border-radius:6px;
+  box-shadow:2px 2px 3px 3px green;
+  filter:blur(2px);
+animation: divcome 0.5s ease-in 1 forwards;
+animation-delay:3.5s;
+}
+.navbar{
+  height:45px;
+  width:359px;
+  background-color:rgba(3,13,112,0.9);
+  position:absolute;
+  bottom:625px;
+  right:0px;
+border: 2px solid transparent;
+  border-radius: 2px;
+  background: 
+    linear-gradient(#060b21, #060b21) padding-box, 
+    linear-gradient(45deg, #ff8c00, #ffd700, #008000, #ff8c00) border-box;
+  background-size: 100% 100%, 400% 400%;
+  animation: borderGradient 4s linear infinite;
+}
+
+@keyframes borderGradient {
+  0% {
+    background-position: 0% 50%, 0% 50%;
+  }
+  50% {
+    background-position: 0% 50%, 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%, 0% 50%;
+  }
+
+}
+.navbarelements{
+  text-decoration:none;
+  position:absolute;
+  color:rgba(122,240,3,0.7);
+  top:15px;
+  left:145px;
+}
+.navbarelements2{
+text-decoration:none;
+position:absolute;
+color:rgba(122, 240, 3, 0.7);
+left:50px;
+top:13px;
+font-size:18px;
+text-shadow:0 0 1px  white;
+}
+.belowtab{
+  height:2px;
+  width:45px;
+  background-color:green;
+  position:absolute;
+  left:54px;
+  top:38px;
+}
+.navbarelements3{
+text-decoration:none;
+position:absolute;
+color:rgba(122, 240, 3, 0.7);
+top:15px;
+left:250px;
+}
+.model-container{
+  height:275px;
+  width:100px;
+  background-color:white;
+  position:absolute;
+  bottom:40px;
+  right:360px;
+  z-index:-1;
+  border:2px solid #28d488;
+  border-radius:10px;
+  box-shadow:3px 3px 3px 3px brown;
+  animation: modelrotate 2s ease-in 1 forwards;
+  animation-delay:5s;
+  background:linear-gradient(135deg,brown 0% 50%,white 80% 100%);
+}
+.batmodel{
+  height:300px;
+  width:300px;
+  position:relative;
+  bottom:10px;
+  right:110px;
+  z-index:1;
+  opacity:1;
+  overflow:hidden;
+}
+.jsw2024{
+  height:60px;
+  width:35px;
+  background-image:url("https://i.ibb.co/d0pZ9Yyp/bd45641b1e7a2e8e9ba2dd2358ddc8ec.jpg");
+  border:1px solid violet;
+  border-radius:5px;
+  position:absolute;
+  z-index:9999;
+  left:21px;
+  top:130px;
+  background-size:contain;
+  background-position:center;
+  background-repeat:no-repeat;
+  box-shadow:0 0 2px 2px #28d488;
+}
+.insidetxt{
+  color:purple;
+  text-shadow:0 0 1px white;
+}
+@keyframes modelrotate {
+  0%{
+    transform:translate(0px,0px);
+  rotate:0deg;
+  }
+  50%{
+ transform:translate(230px,0px);
+rotate:0deg;
+  }
+  100%{
+    rotate:20deg;
+ transform:translate(200px,-60px);
+  }
+}
+.model-container2 {
+  height: 275px;
+  width: 100px;
+  background-color: white;
+  position: absolute;
+  bottom: 40px;
+  left:360px;
+  z-index: -1;
+  border: 2px solid #28d488;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px 3px brown;
+  animation: modelrotate2 2s ease-in 1 forwards;
+  animation-delay: 5s;
+  background:linear-gradient(135deg,brown 0% 50%,white 80% 100%);
+}
+@keyframes modelrotate2 {
+  0%{
+    transform:translate(0px,0px);
+  rotate:0deg;
+  }
+  50%{
+ transform:translate(-230px,0px);
+rotate:0deg;
+  }
+  100%{
+    rotate:-20deg;
+ transform:translate(-200px,-60px);
+  }
+}
+.model-container3 {
+  height: 275px;
+  width: 100px;
+  background-color: white;
+  position: absolute;
+  bottom: 40px;
+  left: 130px;
+  z-index: -1;
+  border: 2px solid #28d488;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px 3px brown;
+  animation: deadopacity 1s ease-in 1 forwards;
+  animation-delay: 5s;
+  background:linear-gradient(135deg,brown 0% 50%,white 80% 100%);
+  opacity:0;
+}
+.season{
+  position:relative;
+  font-size:13px;
+  bottom:95px;
+  left:18px;
+  color:white;
+  text-shadow:0 0 2px brown;
+  z-index:9999;
+}
+.season2{
+  position:relative;
+  font-size:11px;
+  bottom:100px;
+  left:60px;
+  color:white;
+  text-shadow:0 0 2px brown;
+  z-index:9999;
+}
+.detailpointer{
+  height:2px;
+  width:10px;
+  background:linear-gradient(to right, brown, white);
+  position:absolute;
+  left:65px;
+  transform:rotate(20deg);
+animation: pointermove2 1s ease-in 1 forwards;
+animation-delay: 7s;
+}
+@keyframes pointermove2{
+  from{
+    height:2px;
+    width:10px;
+  }
+  to{
+    height:3px;
+    width:40px;
+  }
+}
+.knowmore{
+  height:50px;
+  width:60px;
+  position:absolute;
+  left:2px;
+  bottom:175px;
+  background-color:rgba(0,0,0,0.6);
+  display:flex;
+  justify-content: center;
+  border:1px solid rgba(0,0,0);
+  border-radius:6px;
+  animation:deadopacity 1s ease-in 1 forwards;
+  animation-delay:7.5s;
+  opacity:0;
+}
+.knowmoretxt{
+  color:white;
+  text-align: center;
+  position:relative;
+  top:2px;
+  text-shadow:0 0 3px white;
+}
+.knowmorea{
+  text-decoration:none;
+} 
 .register-btn:hover::before,
 .register-btn:hover::after {
   opacity: 1;
@@ -303,19 +640,335 @@ text-shadow:0 0 1px  white;
   background-color:green;
   position:absolute;
   left:54px;
+/* --- THE FIXED SCALING WRAPPER --- */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #111; /* Dark background so your app canvas pops out cleanly */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Perfectly centers the canvas */
+  height: 100vh;
+  width: 100vw;
+}
+
+#app-canvas {
+  position: relative;
+  width: 360px;
+  height: 670px; /* The exact height of your M12 view */
+  background: linear-gradient(to right, #28d488, #ffffff); /* Your original gradient is safely in here now! */
+  overflow: hidden; /* Stops any animations from escaping the canvas */
+  transform-origin: center center; /* This stops it from flying off to the right! */
+}
+
+/* --- YOUR EXACT ORIGINAL CSS BELOW --- */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.mainimg{
+  position:relative;
+  height:250px;
+  width:360px;
+  right:6px;
+  top:40px;
+  animation:imgzoom 1s ease-in-out 1 forwards;
+  animation-delay:2.5s;
+  box-shadow: 3px 3px 8px px green;
+}
+.ballanm{
+  position:relative;
+  height:25px;
+  width:25px;
+  z-index:2;
+  bottom:125px;
+  right:25px;
+animation:ballgo 1.5s ease-in 1 forwards;
+animation-delay:1s;
+}
+.anmcircles{
+  position:relative;
+  height:25px;
+  width:25px;
+  border:1px solid white;
+  border-radius:50%;
+  opacity:0;
+  bottom:115px;
+  left:165px;
+  animation:circlesextend 1s ease-in 1 forwards ;
+  animation-delay:2.5s;
+}
+@keyframes ballgo {
+  0%{
+    transform:translate(0,0);
+    rotate:0deg;
+  }
+  50%{
+    transform:translate(96px,20);
+    rotate:180deg;
+  }
+  100%{
+    transform:translate(192px,40px);
+    rotate:360deg;
+  }
+}
+  
+@keyframes imgzoom{
+  from{
+    height:250px;
+    width:360px;
+    transform:translate(0,0);
+  }
+  to{
+    height:300px;
+    width:420px;
+    transform:translate(-30px,0px);
+  }
+}
+@keyframes circlesextend{
+  from{
+    opacity:1;
+    height:25px;
+    width:25px;
+    transform:translateX(0px);
+  }
+  to{
+    position:relative;
+    opacity:0;
+    height:45px;
+    width:45px;
+    transform:translateX(-2px);
+  }
+}
+.anmcircles2 {
+  position: relative;
+  height: 25px;
+  width: 25px;
+  border: 1px solid white;
+  border-radius: 50%;
+  opacity: 0;
+  bottom: 165px;
+  left: 165px;
+  animation: circlesextend 1s ease-in-out 1 forwards;
+  animation-delay: 3.2s;
+}
+.pointers{
+  width:1.5px;
+  height:5px;
+  background:linear-gradient(135deg,#007bff,#ffffff,#007bff);
+  filter:blur(1px);
+  position:relative;
+  bottom:200px;
+  left:148px;
+  transform:rotate(235deg);
+  z-index:3;
+animation: pointermove 0.5s ease-in 1 forwards;
+animation-delay:4s;
+}
+.register-btn {
+  position: absolute;
+  padding: 6px 15px;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: brown;
+ background:linear-gradient(135deg,#007bff,#ffffff,#007bff);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  bottom:350px;
+animation: divcome 0.5s ease-in 1 forwards;
+animation-delay:3.5s;
+right:600px;
+}
+
+.register-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 6px;
+  padding: 3px;
+  background: linear-gradient(45deg, #007bff,  #007bff, #ff00ea);
+  background-size: 400%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.register-btn::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  z-index: -1;
+  background: linear-gradient(45deg, #007bff,  #007bff, #ff00ea);
+  background-size: 400%;
+  border-radius: 10px;
+  filter: blur(6px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.register-btn:hover {
+  transform: translateY(-2px);
+}
+
+.register-btn:hover::before,
+.register-btn:hover::after {
+  opacity: 1;
+  animation: moveGradient 4s linear infinite;
+}
+
+@keyframes moveGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+#textholder{
+  background:linear-gradient(to right,rgba(6,12,33,1)
+  ,rgba(6,12,33,0.2));
+  height:300px;
+  width:400px;
+  position:absolute;
+  bottom:333px;
+  right:360px;
+  animation: divcome 0.5s ease-in 1 forwards;
+  animation-delay:3.5s;
+  box-shadow:2px 2px 5px 5px brown;
+}
+@keyframes divcome{
+  from{
+    transform:translateX(0px);
+  }
+  to{
+    transform:translateX(360px);
+  }
+}
+.mainabovetxt{
+  color:transparent;
+  background:linear-gradient(to right, #00ff88,#ffffff,#FFB6C1);
+  background-clip:text;
+  -webkit-background-clip: text;
+  position:absolute;
+  bottom:515px;
+  z-index:5;
+  font-size:22px;
+animation: divcome 0.5s ease-in 1 forwards;
+animation-delay:3.5s;
+right:546px;
+}
+.belowtxt{
+  font-size:15px;
+  color:rgba(255,255,255,0.7);
+  position:absolute;
+  bottom:440px;
+  opacity:0;
+  animation:deadopacity 0.5s ease-in 1 forwards;
+  animation-delay:3.5s;
+}
+@keyframes pointermove{
+  from{
+    height:20px;
+    width:1.5x;
+  }
+  to{
+    height:70px;
+    width:1.5px;
+  }
+}
+@keyframes deadopacity{
+  from{
+    opacity:0;
+  }
+  to{
+    opacity:1;
+  }
+}
+.hehehe {
+  position:absolute;
+  z-index:0;
+  height:58px;
+  width:110px;
+  background:linear-gradient(#007bff,#fff,#007bff);
+  border:1px solid #007bff;
+  bottom:347px;
+  right:600px;
+  border-radius:6px;
+  box-shadow:2px 2px 3px 3px green;
+  filter:blur(2px);
+animation: divcome 0.5s ease-in 1 forwards;
+animation-delay:3.5s;
+}
+.navbar{
+  height:45px;
+  width:359px;
+  background-color:rgba(3,13,112,0.9);
+  position:absolute;
+  bottom:625px;
+  right:0px;
+border: 2px solid transparent;
+  border-radius: 2px;
+  background: 
+    linear-gradient(#060b21, #060b21) padding-box, 
+    linear-gradient(45deg, #ff8c00, #ffd700, #008000, #ff8c00) border-box;
+  background-size: 100% 100%, 400% 400%;
+  animation: borderGradient 4s linear infinite;
+}
+
+@keyframes borderGradient {
+  0% {
+    background-position: 0% 50%, 0% 50%;
+  }
+  50% {
+    background-position: 0% 50%, 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%, 0% 50%;
+  }
+
+}
+.navbarelements{
+  text-decoration:none;
+  position:absolute;
+  color:rgba(122,240,3,0.7);
+  top:15px;
+  left:145px;
+}
+.navbarelements2{
+text-decoration:none;
+position:absolute;
+color:rgba(122, 240, 3, 0.7);
+left:50px;
+top:13px;
+font-size:18px;
+text-shadow:0 0 1px  white;
+}
+.belowtab{
+  height:2px;
+  width:45px;
+  background-color:green;
+  position:absolute;
+  left:54px;
   top:38px;
 }
 .navbarelements3{
 text-decoration:none;
 position:absolute;
 color:rgba(122, 240, 3, 0.7);
-
 top:15px;
 left:250px;
-}
-*{
-  padding:0;
-  margin:0;
 }
 .model-container{
   height:275px;
@@ -370,15 +1023,10 @@ left:250px;
  transform:translate(230px,0px);
 rotate:0deg;
   }
-  
   100%{
     rotate:20deg;
  transform:translate(200px,-60px);
-
   }
-}
-body{
-  background:linear-gradient(to right,#28d488,#ffffff);
 }
 .model-container2 {
   height: 275px;
@@ -404,11 +1052,9 @@ body{
  transform:translate(-230px,0px);
 rotate:0deg;
   }
-  
   100%{
     rotate:-20deg;
  transform:translate(-200px,-60px);
-
   }
 }
 .model-container3 {
@@ -448,8 +1094,7 @@ rotate:0deg;
 .detailpointer{
   height:2px;
   width:10px;
-  background:linear-gradient(to right, brown, white
-      );
+  background:linear-gradient(to right, brown, white);
   position:absolute;
   left:65px;
   transform:rotate(20deg);
@@ -490,4 +1135,4 @@ animation-delay: 7s;
 }
 .knowmorea{
   text-decoration:none;
-}
+} 
